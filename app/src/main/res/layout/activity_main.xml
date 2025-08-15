@@ -11,15 +11,15 @@
         android:layout_marginTop="300dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="GotoLogs"
         android:text="LOGS" />
 
 
     <Button
         android:id="@+id/calculate"
-        android:layout_marginTop="100dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:onClick="GoToLogs"
         android:text="calculate" />
 
     <Button

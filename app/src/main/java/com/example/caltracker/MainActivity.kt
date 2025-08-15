@@ -1,7 +1,10 @@
 package com.example.caltracker
 
+import android.content.Intent
 import android.os.Bundle
+import android.provider.ContactsContract
 import android.view.View
+import android.widget.Button
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -20,11 +23,25 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
+
+        val logsButton = findViewById<Button>(R.id.logs)
+        logsButton.setOnClickListener {
+            val intent = Intent(this, LogsActivity::class.java)
+            startActivity(intent)
+        }
+
+        val profileButton = findViewById<Button>(R.id.profile)
+        profileButton.setOnClickListener {
+             val intent = Intent(this, ProfileActivity::class.java)
+             startActivity(intent)
+        }
+        val calculateButton = findViewById<Button>(R.id.calculate)
+        calculateButton.setOnClickListener {
+           val intent = Intent(this, CalculateActivity::class.java)
+           startActivity(intent)
+        }
     }
-
-    fun GoToLogs(view: View?) {
-        println("clicked")
-
-    }
-
 }
+
+
+
