@@ -1,16 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="40dp"
-        android:gravity="center"
-        android:layout_marginTop="200dp"
-        android:text="CALCULATE" />
 
-</LinearLayout>
+    <EditText
+        android:id="@+id/editTextAge"
+        android:layout_width="343dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="100dp"
+        android:ems="10"
+        android:hint="Enter Age"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextHeight"
+        android:layout_width="341dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:hint="Enter Height"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.528"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextAge" />
+
+    <EditText
+        android:id="@+id/editTextWeight"
+        android:layout_width="341dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:hint="Enter weight"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.528"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextHeight" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupGender"
+        android:layout_width="208dp"
+        android:layout_height="72dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextWeight" >
+
+        <RadioButton
+            android:id="@+id/radioButtonMale"
+            android:layout_width="111dp"
+            android:layout_height="match_parent"
+            android:text="M" />
+
+        <RadioButton
+            android:id="@+id/radioButtonFemale"
+            android:layout_width="100dp"
+            android:layout_height="72dp"
+            android:text="F" />
+    </RadioGroup>
+
+
+
+    <Button
+        android:id="@+id/buttonCalculate"
+        android:layout_width="276dp"
+        android:layout_height="92dp"
+        android:layout_marginTop="100dp"
+        android:text="Calculate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextWeight" />
+
+    <TextView
+        android:id="@+id/textViewBmr"
+        android:layout_width="119dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="32dp"
+        android:text="BMR:"
+        android:textSize="48sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.251"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonCalculate" />
+
+    <TextView
+        android:id="@+id/textViewResult"
+        android:layout_width="193dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="32dp"
+        android:text=""
+        android:textSize="48sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textViewBmr"
+        app:layout_constraintTop_toBottomOf="@+id/buttonCalculate" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

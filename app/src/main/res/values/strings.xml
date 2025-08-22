@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">cal tracker</string>
+    <string name="AGE">calculate</string>
+    <string name="WEIGHT">calculate</string>
+    <string name="HEIGHT">calculate</string>
+
+
+
 </resources>
