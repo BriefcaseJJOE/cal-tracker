@@ -31,7 +31,9 @@ class CalculateActivity : ComponentActivity() {
     lateinit var editTextWeight: EditText
     lateinit var radioGroupGender: RadioGroup
 
-    lateinit var gender: String
+    lateinit var radioGroupActivity: RadioGroup
+
+    lateinit var tdeeButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,12 +45,12 @@ class CalculateActivity : ComponentActivity() {
         editTextHeight = findViewById(R.id.editTextHeight)
         editTextWeight = findViewById(R.id.editTextWeight)
         radioGroupGender = findViewById(R.id.radioGroupGender)
+        radioGroupActivity = findViewById(R.id.radioGroupActivity)
+        tdeeButton = findViewById(R.id.buttonTDEE)
 
         radioGroupGender.setOnCheckedChangeListener { group, checkedId ->
             val radioButton = findViewById<RadioButton>(checkedId)
             val gender = radioButton.text.toString()
-
-
 
             calculateButton.setOnClickListener {
 
@@ -59,13 +61,39 @@ class CalculateActivity : ComponentActivity() {
                 val textViewResult = findViewById<TextView>(R.id.textViewResult)
                 textViewResult.text = bmr.toString()
 
+            radioGroupActivity.setOnCheckedChangeListener { group, checkedId ->
+                val radioButton = findViewById<RadioButton>(checkedId)
+                val activity = radioButton.text.toString()
 
+                tdeeButton.setOnClickListener {
+                    val tdee = calculateTDEE(bmr, activity)
+                    val textViewResultTDEE = findViewById<TextView>(R.id.textViewResultTDEE)
+                    textViewResultTDEE.text = tdee.toString()
+                }
+            }
+            }
             }
         }
         }
 
+private fun CalculateActivity.calculateTDEE(bmr: Double, activity: String): Double {
+    if (activity == "Sedentary (little or no exercise)") {
+        return bmr * 1.2
+        } else if (activity == "Lightly active (light exercise/sports 1-3 days/week)") {
+        return bmr * 1.375
+        } else if (activity == "Moderately active (moderate exercise/sports 3-5 days/week)") {
+        return bmr * 1.55
+        } else if (activity == "Very active (hard exercise/sports 6-7 days a week)") {
+        return bmr * 1.725
+        } else if (activity == "Extra active (very hard exercise/sports (hard physical job))") {
+        return bmr * 1.9
+        } else {
+        return 0.0
 
-    }
+}
+
+
+}
 
     private fun CalculateActivity.calculateBMR(
         age: Int,
